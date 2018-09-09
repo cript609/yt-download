@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="signin.css" rel="stylesheet"> -->
+  </head>
+
+  <body class="text-center">
+      <form action="/" method="post"> {% csrf_token %}
+        <div class="form-group">
+            <br><br><br>
+          <label for="youtube-url">Enter a valid url [ YouTube ] </label><br><br><br>
+          <input type="text" name="youtube_url" class="form-control" id="youtube-url" placeholder="   YouTube url "><br>
+        </div>
+        <button type="submit" class="btn btn-lg btn-info">Submit</button>
+        <br><br>
+        {% if request.method == "POST" %}
+            {% if request.POST.youtube_url %}
+                <a href= "{{ vid_download }}" >Download The Video</a>
+            {% else %}
+                Empty!!!!!!!!!!!!!!
+            {% endif %}
+        {% endif %}
+      </form>
+  </body>
+</html>
